@@ -1,0 +1,30 @@
+#newBlogCard{
+    height: 40vh;
+}
+
+#viewBlogsCard{
+    height: 40vh;
+}
+
+#restaurantsCard{
+    height: 40vh;
+}
+
+.landingCardText{
+    color: white;
+    margin-top: 200px;
+    padding: 5px;
+}
+
+.landingCard{
+    background-image: url("../images/landing_page_stock.jpg");
+    background-size: "cover";
+}
+
+.blogPageTextBox{
+    margin-top: 32px;
+}
+
+.descriptionArea{
+    height: 150px;
+}

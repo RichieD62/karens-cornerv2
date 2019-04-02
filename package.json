@@ -1,0 +1,26 @@
+{
+  "name": "karens-cornerv2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RichieD62/karens-cornerv2.git"
+  },
+  "author": "Rich Donovan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RichieD62/karens-cornerv2/issues"
+  },
+  "homepage": "https://github.com/RichieD62/karens-cornerv2#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.20",
+    "path": "^0.12.7"
+  }
+}

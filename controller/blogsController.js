@@ -2,7 +2,7 @@ var db = require("../model/blogs.js")
 var express = require("express")
 var router = express.Router()
 
-router.post('/api/newBlog', (req, res) => {
+router.post('/newBlog', (req, res) => {
     var newBlog = req.body
 
     db.create(newBlog)

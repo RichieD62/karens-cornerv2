@@ -1,8 +1,9 @@
 $(document).ready(function () {
 
-    $("#submitButton").click((event) => {
-        event.preventDefault()
+    $("#submitButton").click(function(event) {
+        event.preventDefault();
         event.stopImmediatePropagation()
+        console.log("Button Clicked")
 
         var name = $("#restaurantName").val().trim()
         var address = $("#address").val().trim()
@@ -39,17 +40,17 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'POST',
-            url: '/api/newBlog',
+            url: '/newBlog',
             data: newBlogObject,
             success: function(res) {
                 console.log(res)
             },
             error: function(error) {
+                console.log("ERROR! You did a bad job")
                 console.log(error)
             }
         })
 
-        return false;
     })
 
 })

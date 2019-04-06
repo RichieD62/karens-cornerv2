@@ -1,55 +1,37 @@
 const express = require("express");
 const app = express();
-const exphbs = require("express-handlebars")
 const bodyParser = require('body-parser')
-var db = require("./model/blogs.js")
+const path = require("path")
+let apiRoutes = require("./controller/blogsController")
 
 
 app.use("/public", express.static(__dirname + "/public/"));
 
-
-let PORT = process.env.PORT || 3000;
-
-app.engine("handlebars", exphbs({defaultLayout: "main"}));
-app.set("view engine", "handlebars")
-
-//Handlebars Routes
+//HTML Routes
 //home
 app.get("/", (req, res) => {
-    res.render("home")
+    res.sendFile(path.join(__dirname, "./public/views/home.html"));
 })
 //New Blog
 app.get("/newBlog", (req, res) => {
-    res.render("blog")
+    res.sendFile(path.join(__dirname, "./public/views/blog.html"))
 })
 //View Blogs
 app.get("/viewBlogs", (req, res) => {
-    res.render("reviewBlogs")
+    res.sendFile(path.join(__dirname, "./public/views/reviewBlogs.html"))
 })
 //New Restaurants
 app.get("/restaurants", (req, res) => {
-    res.render("restaurants")
+    res.sendFile(path.join(__dirname, "./public/views/restaurants.html"))
 })
 
-
-//POST Route from New Blog Page to Database
-app.post('/newBlog', (req, res) => {
-    var newBlog = req.body
-
-    db.create(newBlog)
-        .then(function (dbBlog) {
-            res.json(dbBlog)
-        })
-        .catch(function (error) {
-            res.json(error)
-        })
-})
 
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(apiRoutes)
 
-
+let PORT = process.env.PORT || 3000;
 
 const mongoose = require('mongoose')
 const dbName = "karensCornerDB"

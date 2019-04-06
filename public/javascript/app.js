@@ -40,7 +40,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'POST',
-            url: '/newBlog',
+            url: '/api/newBlog',
             data: newBlogObject,
             success: function(res) {
                 console.log(res)

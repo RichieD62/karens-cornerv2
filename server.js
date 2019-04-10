@@ -4,8 +4,7 @@ const bodyParser = require('body-parser')
 const path = require("path")
 let apiRoutes = require("./controller/blogsController")
 
-
-app.use("/public", express.static(__dirname + "/public/"));
+app.use(express.static("public"));
 
 //HTML Routes
 //home
@@ -30,6 +29,9 @@ app.get("/restaurants", (req, res) => {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(apiRoutes)
+
+
+
 
 let PORT = process.env.PORT || 3000;
 

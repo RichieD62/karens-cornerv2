@@ -10,6 +10,7 @@ $(document).ready(function () {
         var city = $("#city").val().trim()
         var state = $("#state").val().trim()
         var zip = $("#zip").val().trim()
+        var restaurantPicture = $("#restaurantPicture").val().trim()
         var meal = $("#meal").val().trim()
         var mealRating = $("#mealRating").val()
         var mealDescription = $("#mealDescription").val()
@@ -19,6 +20,9 @@ $(document).ready(function () {
         var restaurantStyle = $("#restaurant").val()
         var ambianceRating = $("#ambianceRating").val()
         var ambianceDescription = $("#ambianceDescription").val()
+        var totalNumber = parseInt(mealRating) + parseInt(serviceRating) + parseInt(ambianceRating);
+        
+        console.log(totalNumber)
 
         var newBlogObject = {
             name: name,
@@ -26,6 +30,7 @@ $(document).ready(function () {
             city: city,
             state: state,
             zip: zip,
+            restaurantPicture: restaurantPicture,
             meal: meal,
             mealRating: mealRating,
             mealDescription: mealDescription,
@@ -34,7 +39,8 @@ $(document).ready(function () {
             serviceDescription: serviceDescription,
             restaurantStyle: restaurantStyle,
             ambianceRating: ambianceRating,
-            ambianceDescription: ambianceDescription
+            ambianceDescription: ambianceDescription,
+            totalNumber: totalNumber
         }
 
 
@@ -51,6 +57,32 @@ $(document).ready(function () {
             }
         })
 
+    })
+
+    $.ajax({
+        type: 'GET',
+        url: '/api/blogs',
+        success: function(data) {
+            for (var i=0; i<data.length; i++) {
+                console.log(data[i].totalNumber)
+                $("#resultsArea").prepend(
+                    `<div class="card" style="width: 25rem;">
+                    <div class="card-body">
+                        <div class=cardImages>
+                        <img src="${data[i].restaurantPicture}" class="card-img-top" alt="${data[i].name}" style="width: 100px; height: 100px">
+                    </div>
+                        
+                        <h5 class="card-title">${data[i].name}</h5>
+                        <p class="card-text">${data[i].totalNumber}</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>`
+                )
+            }
+        },
+        error: function(err){
+            console.log(err)
+        }
     })
 
 })

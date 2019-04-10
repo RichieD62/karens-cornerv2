@@ -24,6 +24,10 @@ var BlogSchema = new Schema({
         type: Number
     },
 
+    restaurantPicture: {
+        type: String
+    },
+
     meal: {
         type: String
     },
@@ -32,6 +36,7 @@ var BlogSchema = new Schema({
         type: Number
     },
 
+ 
     mealDescription: {
         type: String
     },
@@ -58,6 +63,10 @@ var BlogSchema = new Schema({
 
     ambianceDescription: {
         type: String
+    },
+
+    totalNumber: {
+        type: Number
     }
 
 })

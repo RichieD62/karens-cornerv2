@@ -17,7 +17,7 @@
 }
 
 .landingCard{
-    background-image: url("../images/landing_page_stock.jpg");
+    background-image: url("http://www.tompetty.com/sites/g/files/g2000007521/f/Sample-image10-highres.jpg");
     background-size: "cover";
 }
 
@@ -27,4 +27,8 @@
 
 .descriptionArea{
     height: 150px;
+}
+
+.cardImages{
+    margin-bottom: 15px;
 }

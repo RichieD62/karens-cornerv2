@@ -14,4 +14,14 @@ router.post('/api/newBlog', (req, res) => {
         })
 })
 
+router.get('/api/blogs', (req, res) => {
+    db.find({})
+        .then((dbResults) => {
+            res.send(dbResults)
+        })
+        .catch((error) => {
+            res.json(error)
+        })
+})
+
 module.exports = router
